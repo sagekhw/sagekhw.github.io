@@ -1,0 +1,268 @@
+
+<!DOCTYPE html>
+<head>
+    <script  src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <link rel="stylesheet" href="default.css">
+</head>
+<body>
+<h2>To register Entrepreneur API</h2>
+
+<div class="content" >
+    <h3>사업자 가입 입력</h3>
+    <ul>
+        <li> <strong>REQUEST</strong></li>
+        <li>[POST] /company/register</li>
+        <li>
+            <strong>HEADERS</strong>
+            <ul>
+                <li>Content-Type : application/json</li>
+                <li>Authorization : Bearer 'token'</li>
+            </ul>
+        </li>
+        <li>
+            <strong>BODY</strong>
+            <div class="request_body">
+                <div class="box">
+                    <pre class="codecontent">
+                        <code>
+{
+    스토어 유형 : 서비스 or 상품
+    판매자 유형 : 개인 or 사업자
+    사업자 구분 : 개인 or  법인
+    세금 : 일반 or 간이
+    대표자 구성 : 1인 or 공동
+    대표자 명:  [
+        {
+            “key”:”value”
+        },
+        {
+            “key”:”value”
+        },
+        …..
+    ]
+    상호명 : SAGEKHW
+    사업자등록번호:123-123-123123
+    통신판매업신고 : {
+        신고: 유 or 무,
+        번호:1988-052-1234,
+        사유: 사유가 있나 보네
+    } 
+    법인등록번호 : 123-123-123123
+    사업장 주소: 부산진 어딘가
+    업태:[
+        {
+            “key”:”value”
+        },
+        {
+            “key”:”value”
+        },
+        …..
+    ],
+    업종:[
+        {
+            “key”:”value”
+        },
+        {
+            “key”:”value”
+        },
+        …..
+    ],
+    스토어 명: 드르와
+    스토어 URL : https://sagekhw.net/
+    소개글 : 안녕하세요 sagekhw 입니다.
+    고객센터 전화번호 : 01012341234
+    로고 이미지 : 파일선택
+    상품판매권한신청: {
+        신청 유무 : 유or무
+        카테고리 : [
+            {
+                “카테고리”:”카테고리명”
+            },
+            {
+                “카테고리”:”카테고리명”
+            },
+            ….
+        ]
+    }
+    배송정보 : {
+        “기본정보”:[
+            {
+                타입 : 출고	    
+                이름 : 울산
+                주소 : 어딘가
+                연락처 : 01012341234
+            },
+            {
+                타입 :반품 및 교환
+                이름 : 울산
+                주소 : 어딘가
+                연락처 : 01012341234
+            }
+            
+            ],
+                “정산대금 입금계좌/수령방법”:{
+                “은행”:”부산”,
+                “예금주”: “홍길동”
+                “번호”:”21100232342221323”
+            }
+    }
+    담당자 : {
+        이름 : 홍길동
+        휴대폰 : 01012341234
+        메일 : sagekhw@sagekhw.com
+        메일인증 유무 : 유 or 무
+    }
+    서류첨부 : [
+        {
+            file_name:”value”
+        },
+        {
+            file_name:”value”
+        },
+        …..
+    ]
+}
+                        </code>
+                    </pre>
+                </div>
+                <div class="box">
+                    <pre class="codecontent">
+                        <code>
+{
+   "store_type":"PRODUCT""/""SERVICE""/""DELIVERY""/""ACCOMMODATION",
+   "seller_type":"individual""/""organization",
+   "business_type":"individual""/""corporation",
+   "taxation":"general""/""simplified",
+   "configuring_representatives":"one""/""joint",
+   "representative":[
+      {
+         "type":"one""/""joint"
+      },
+      {
+         "name":"sagekhw_name"
+      },
+      "….."
+   ]"name":"company_name",
+   "business_license_number":"123123123123",
+   "telecommunication_sales_business_report":{
+      "status":"O""/""X",
+      "number":"19880521234",
+      "reason":"사유가 있나 보네"
+   },
+   "corporate_registration_number":"123-123-123123",
+   "address":"부산진 어딘가",
+   "business_conditions":[
+      {
+         "1":"value"
+      },
+      {
+         "2":"value"
+      },
+      "….."
+   ],
+   "Industries":[
+      {
+         "1":"value"
+      },
+      {
+         "2":"value"
+      },
+      "….."
+   ],
+   "store_name":"드르와",
+   "store_url":"https://sagekhw.net/",
+   "store_introduction":"안녕하세요 sagekhw 입니다.",
+   "customer_center_number":"01012341234",
+   "logo_img":"파일선택",
+   "selling_products_qualification":{
+      "status":"O"/"X",
+      "categories":[
+         {
+            "category":"category_name"
+         },
+         {
+            "category":"category_name"
+         },
+         "…."
+      ]
+   },
+   "shipping_information" : {
+    "basic":[
+        {
+            "type" : "출고",	    
+            "name" : "울산",
+            "basic_address" : "어딘가",
+            "detail_address" : "어딘가",
+            "post_code" : "123123",
+            "연락처" : "01012341234"
+        },
+        {
+            "type" :"반품 및 교환",
+            "name" : "부산",
+            "basic_address" : "어딘가",
+            "detail_address" : "어딘가",
+            "post_code" : "123123",
+            "연락처" : "01012341234"
+        }
+        
+        ],
+        "deposit_account":{
+            "bank":"부산",
+            "depositor": "홍길동",
+            "account":"21100232342221323"
+        }
+    }
+    "manager" : {
+        "name" : 홍길동
+        "mobile_phone_number" : 01012341234
+        "email" : sagekhw@sagekhw.com
+        "email_certified" : "O"/"X"
+    },
+   "attaching_documents":[
+      {
+         "file_name":"value"
+      },
+      {
+         "file_name":"value"
+      },
+      "….."
+   ]
+}
+                        </code>
+                    </pre>
+                </div>
+            </div>
+            
+        </li>
+        
+        <li><strong>RESPONSE</strong></li>
+        <li>
+            <strong>HEADERS</strong>
+            <ul>
+                <li>Content-Type : application/json</li>
+            </ul>
+        </li>
+        <li>
+            <strong>BODY</strong>
+            <pre class="codecontent">
+                <code>
+                    {
+                        "code": 200,
+                        "result": "success"
+                    }
+                    
+                    {
+                        "code": 500,
+                        "result": "false"
+                    }         
+                </code>
+            </pre>
+        </li>
+        
+    </ul>
+
+</div>
+
+    
+</body>
+</html>

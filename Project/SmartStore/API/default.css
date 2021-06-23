@@ -1,0 +1,24 @@
+
+.content > ul{
+    list-style-type:none;
+}
+
+.codecontent{
+    background-color:#FBF2EF;
+}
+
+.request_body{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+    height: auto;
+    /* background-color:#e2a996; */
+}
+
+.request_body > .box{
+    margin-right: 10px;
+    width: auto;
+    height: auto;
+    background-color:#FBF2EF;
+}
